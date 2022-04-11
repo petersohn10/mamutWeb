@@ -3,6 +3,7 @@ package com.lacio.mamutweb;
 
 
 import com.lacio.mamutweb.entities.SettlementRow;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
 import java.util.Collections;
@@ -10,7 +11,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Service
-public class MamutCalculations {
+
+public class MamutCalculations implements AutoCloseable  {
 
     private Map<String, Float> amountByName;
 
@@ -72,4 +74,8 @@ public class MamutCalculations {
     }
 
 
+    @Override
+    public void close() {
+        amountByName.clear();
+    }
 }
