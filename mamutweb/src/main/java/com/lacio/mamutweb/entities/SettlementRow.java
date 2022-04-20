@@ -18,6 +18,17 @@ public class SettlementRow {
     private double koszt;
     @Column(name = "`Kto`")
     private char kto;
+    @Column(name = "`Kategoria`")
+    private String kategoria;
+
+
+    public String getKategoria() {
+        return kategoria;
+    }
+
+    public void setKategoria(String kategoria) {
+        this.kategoria = kategoria;
+    }
 
     public SettlementRow() {
     }
@@ -53,6 +64,7 @@ public class SettlementRow {
                 "id=" + id +
                 ", koszt=" + koszt +
                 ", kto=" + kto +
+                ", kategoria='" + kategoria + '\'' +
                 '}';
     }
 }
